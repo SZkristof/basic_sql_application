@@ -17,22 +17,37 @@ def database(indicator):
 
 
 def mentor_names():
-    rows = database(indicator="""SELECT first_name, last_name FROM mentors;""")
+    indicator = """SELECT first_name, last_name FROM mentors;"""
+    rows = database(indicator)
+
     for index, item in enumerate(rows):
         print(item[1], end=' ')
         print(item[0])
 
 
 def mentor_nicks():
-    rows = database(indicator="""SELECT nick_name FROM mentors WHERE city='Miskolc';""")
+    indicator = """SELECT nick_name FROM mentors WHERE city='Miskolc';"""
+    rows = database(indicator)
+
     for item in rows:
         print(item[0])
 
 
 def finding_carol():
-    rows = database(indicator="""SELECT first_name, last_name, phone_number FROM applicants;""")
+    indicator = """SELECT first_name, last_name, phone_number FROM applicants WHERE first_name='Carol';"""
+    rows = database(indicator)
+
     for index, item in enumerate(rows):
-        print(item[1], end=' ')
         print(item[0], end=' ')
+        print(item[1], end=' ')
         print(item[2])
 
+
+def the_lost_hat():
+    indicator = """SELECT first_name, last_name, phone_number FROM applicants WHERE email LIKE '%adipiscingenimmi.edu%';"""
+    rows = database(indicator)
+
+    for index, item in enumerate(rows):
+        print(item[0], end=' ')
+        print(item[1], end=' ')
+        print(item[2])
