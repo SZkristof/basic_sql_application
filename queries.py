@@ -27,3 +27,12 @@ def mentor_nicks():
     rows = database(indicator="""SELECT nick_name FROM mentors WHERE city='Miskolc';""")
     for item in rows:
         print(item[0])
+
+
+def finding_carol():
+    rows = database(indicator="""SELECT first_name, last_name, phone_number FROM applicants;""")
+    for index, item in enumerate(rows):
+        print(item[1], end=' ')
+        print(item[0], end=' ')
+        print(item[2])
+
