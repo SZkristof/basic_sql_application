@@ -65,11 +65,11 @@ def new_applicant():
     if len(check_row) < 1:
         indicator = """INSERT INTO applicants (first_name, last_name, phone_number, email, application_code)
                     VALUES ('Markus', 'Schaffarzyk', '003620/725-2666', 'djnovus@groovecoverage.com', '54823');"""
-        rows = database(indicator)
+        database(indicator)
 
-    get_row = """SELECT first_name, last_name, phone_number, email, application_code FROM applicants
+    get_rows = """SELECT first_name, last_name, phone_number, email, application_code FROM applicants
                   WHERE application_code='54823';"""
-    rows = database(get_row)
+    rows = database(get_rows)
 
     for item in rows:
         print(item[0], end=' ')
@@ -87,7 +87,6 @@ def change_phone_number():
 
     get_indicator = """SELECT first_name, last_name, phone_number FROM applicants
                     WHERE first_name = 'Jemima' AND last_name = 'Foreman';"""
-
     rows = database(get_indicator)
 
     for item in rows:
@@ -100,4 +99,5 @@ def change_phone_number():
 def delete_applicants():
     indicator = """DELETE FROM applicants WHERE email LIKE '%mauriseu.net%';"""
     rows = database(indicator)
+
     print("The applicants are removed from the database.")
