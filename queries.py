@@ -15,6 +15,7 @@ def database(indicator):
         pass
 
 
+# Write a query that returns the 2 name columns of the mentors table.
 def mentor_names():
     indicator = """SELECT first_name, last_name FROM mentors;"""
     rows = database(indicator)
@@ -24,6 +25,7 @@ def mentor_names():
         print(item[0])
 
 
+# Write a query that returns the nick_name-s of all mentors working at Miskolc.
 def mentor_nicks():
     indicator = """SELECT nick_name FROM mentors WHERE city='Miskolc';"""
     rows = database(indicator)
@@ -32,6 +34,7 @@ def mentor_nicks():
         print(item[0])
 
 
+# Write a query that returns the full name and telephone number of Carol to give her hat back.
 def finding_carol():
     indicator = """SELECT first_name, last_name, phone_number FROM applicants WHERE first_name='Carol';"""
     rows = database(indicator)
@@ -42,6 +45,7 @@ def finding_carol():
         print(item[2])
 
 
+# Write a query that returns the full name and tel. number of applicants who study at Adipiscingenimmi University.
 def the_lost_hat():
     indicator = """SELECT first_name, last_name, phone_number FROM
                 applicants WHERE email LIKE '%adipiscingenimmi.edu%';"""
@@ -53,6 +57,7 @@ def the_lost_hat():
         print(item[2])
 
 
+# Write a query that inserts to the database & returns all the columns of the new applicant!
 def new_applicant():
     check = """SELECT * FROM applicants WHERE application_code=54823;"""
     check_row = database(check)
@@ -74,6 +79,7 @@ def new_applicant():
         print(item[4])
 
 
+# Write a query that changes the telephone number of Jemima Foreman.
 def change_phone_number():
     indicator = """UPDATE applicants SET phone_number = '003670/223-7459'
                 WHERE first_name = 'Jemima' AND last_name = 'Foreman';"""
@@ -90,6 +96,7 @@ def change_phone_number():
         print(item[2])
 
 
+# Write a query that removes Arsenio and his friend from applicants.
 def delete_applicants():
     indicator = """DELETE FROM applicants WHERE email LIKE '%mauriseu.net%';"""
     rows = database(indicator)
